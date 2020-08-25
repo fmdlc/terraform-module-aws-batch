@@ -5,7 +5,7 @@ variable "vpc_id" {
 
 variable "security_groups" {
   description = "Security groups to be used by the Compute Environment."
-  type        = list(string)
+  type        = list
 }
 
 variable "ce_name" {
@@ -13,15 +13,15 @@ variable "ce_name" {
   type        = string
 }
 
+// The instance types that may be launched. You can specify instance families to launch any instance type within
+// those families (for example, c5, c5n, or p3), or you can specify specific sizes within a family (such as c5.8xlarge).
+// Note that metal instance types are not in the instance families (for example c5 does not include c5.metal.)
+// You can also choose optimal to pick instance types (from the C, M, and R instance families) on the fly that match the
+// demand of your job queues
 variable "instance_type" {
   description = "The instance_type for compute environment to use."
-  type        = list(string)
-}
-
-variable "tags" {
-  description = "AWS resources tags"
   type        = string
-  default     = ""
+  default     = "optimal"
 }
 
 // Map or json file with defined ec2_container_properties.
@@ -29,11 +29,10 @@ variable "ecs_container_properties" {
   description = "A valid container properties provided as a single valid JSON document."
 }
 
-// EC2 or SPOT
 variable "ce_type" {
   description = "Compute Environment type."
   type        = string
-  default     = "EC2"
+  default     = "MANAGED"
 }
 
 // Valid items are BEST_FIT_PROGRESSIVE, SPOT_CAPACITY_OPTIMIZED or BEST_FIT.
