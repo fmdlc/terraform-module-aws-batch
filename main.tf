@@ -1,7 +1,7 @@
 resource "aws_batch_compute_environment" "compute-environment" {
-  compute_environment_name  = var.ce_name
-  service_role              = aws_iam_role.aws_batch_service_role.arn
-  type                      = var.ce_type
+  compute_environment_name = var.ce_name
+  service_role             = aws_iam_role.aws_batch_service_role.arn
+  type                     = var.ce_type
 
   compute_resources {
     instance_role       = aws_iam_instance_profile.ecs_instance_role.arn

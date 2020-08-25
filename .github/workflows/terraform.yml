@@ -1,0 +1,32 @@
+name: 'Terraform'
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches: 
+      - master
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+      - name: Check linting of Terraform files
+        uses: devops-infra/action-tflint@master
+        with:
+          fail_on_changes: false
+          tflint_params: "--deep"
+      - name: 'Terraform Init' 
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.13.1
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: '.'
+          tf_actions_comment: true
+          args: '-backend-config="token=${{ secrets.TF_API_TOKEN }}" -backend-config="organization=tty0" -backend-config="region=us-east-1"'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Terraform Format
+        run: terraform fmt -check      

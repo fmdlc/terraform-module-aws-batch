@@ -1,5 +1,5 @@
 # terraform-aws-batch-module
-![](https://img.shields.io/github/languages/code-size/fmdlc/terraform-module-aws-batch) ![](https://img.shields.io/github/downloads/fmdlc/terraform-module-aws-batch/total) ![https://github.com/fmdlc/terraform-module-aws-batch/issues](https://img.shields.io/github/issues-raw/fmdlc/terraform-module-aws-batch) ![https://www.apache.org/licenses/LICENSE-2.0](https://img.shields.io/github/license/fmdlc/terraform-module-aws-batch) ![https://www.terraform.io/](https://img.shields.io/badge/terraform-v0.13.0-purple)
+![Terraform](https://github.com/fmdlc/terraform-module-aws-batch/workflows/Terraform/badge.svg) ![](https://img.shields.io/github/languages/code-size/fmdlc/terraform-module-aws-batch) ![](https://img.shields.io/github/downloads/fmdlc/terraform-module-aws-batch/total) ![https://github.com/fmdlc/terraform-module-aws-batch/issues](https://img.shields.io/github/issues-raw/fmdlc/terraform-module-aws-batch) ![https://www.apache.org/licenses/LICENSE-2.0](https://img.shields.io/github/license/fmdlc/terraform-module-aws-batch) ![https://www.terraform.io/](https://img.shields.io/badge/terraform-v0.13.0-purple)
 
 [![Linkedin](https://i.stack.imgur.com/gVE0j.png) LinkedIn](https://www.linkedin.com/in/fmdlc) [![GitHub](https://i.stack.imgur.com/tskMh.png) GitHub](https://github.com/fmdlc)
 
@@ -19,7 +19,7 @@ The following diagram shows a general overview of how the AWS Batch resources in
 
 ![https://aws.amazon.com/blogs/compute/using-aws-cloudformation-to-create-and-manage-aws-batch-resources/](https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2018/04/23/AWSBatchresoucreinteract-diagram.png)
 
-> **Ref:** 
+> **Ref:**
 > [Using AWS CloudFormation to Create and Manage AWS Batch Resources](https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2018/04/23/AWSBatchresoucreinteract-diagram.png)
 
 ## Requirements
@@ -125,9 +125,9 @@ The following properties has been defined as variables in order to pass data to 
 The module outputs the following values.
 
 |Name| Description |
-|---|---|         
+|---|---|
 |`compute_environment_resources_arn` | Compute Environment ARN.
-|`compute_environment_name` | Compute Environment name. 
+|`compute_environment_name` | Compute Environment name.
 |`compute_environment_state` | Compute Environment state.
 |`job_definition_arn` | Job definition ARN.
 |`job_definition_container_properties` | Job definition properties.
@@ -177,6 +177,9 @@ No known issues so far.
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
+
+## Authors
+Module managed by [Facu de la Cruz](https://www.linkedin.com/in/fmdlc/)
 
 ## License
 [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)

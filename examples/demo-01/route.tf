@@ -23,7 +23,7 @@ resource "aws_route_table" "route-us-east-1" {
 
 resource "aws_route_table_association" "us-east-1" {
   count          = 3
-  subnet_id      = format("%v", [for k in (element(aws_subnet.main-us-east.*, count.index)): k.id][count.index])
-  route_table_id = format("%v", [for k in (element(aws_route_table.route-us-east-1.*, count.index)): k.id][count.index])
+  subnet_id      = format("%v", [for k in(element(aws_subnet.main-us-east.*, count.index)) : k.id][count.index])
+  route_table_id = format("%v", [for k in(element(aws_route_table.route-us-east-1.*, count.index)) : k.id][count.index])
 }
 

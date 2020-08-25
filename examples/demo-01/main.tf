@@ -1,7 +1,6 @@
 module "aws-batch" {
-  source = "../../"
-  #version = "0.1.0"
-
+  source          = "fmdlc/aws-batch/module"
+  version         = "0.1.0"
   vpc_id          = aws_vpc.main.id
   security_groups = [aws_security_group.trusted.id]
   ce_name         = "Demo-CE"

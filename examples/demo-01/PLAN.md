@@ -1,17 +1,44 @@
 ## Initializing
 > Execute `terraform init`
-```
+```hcl
 $: terraform init
+Initializing the backend...
+
+Successfully configured the backend "s3"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Finding latest version of hashicorp/aws...
+- Installing hashicorp/aws v3.3.0...
+- Installed hashicorp/aws v3.3.0 (signed by HashiCorp)
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, we recommend adding version constraints in a required_providers block
+in your configuration, with the constraint strings suggested below.
+
+* hashicorp/aws: version = "~> 3.3.0"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
 ```
 
 ## Creating a plan
 > Execute `terraform plan`
 ```hcl
-$: terraform plan
-
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
+
 
 ------------------------------------------------------------------------
 
@@ -275,7 +302,7 @@ Terraform will perform the following actions:
   # module.aws-batch.aws_batch_compute_environment.compute-environment will be created
   + resource "aws_batch_compute_environment" "compute-environment" {
       + arn                      = (known after apply)
-      + compute_environment_name = "Demo-Compute-Environment"
+      + compute_environment_name = "Demo-CE"
       + ecs_cluster_arn          = (known after apply)
       + id                       = (known after apply)
       + service_role             = (known after apply)
@@ -289,7 +316,7 @@ Terraform will perform the following actions:
           + desired_vcpus       = 1
           + instance_role       = (known after apply)
           + instance_type       = [
-              + "t2.small",
+              + "optimal",
             ]
           + max_vcpus           = 2
           + min_vcpus           = 0
