@@ -1,31 +1,37 @@
 {
-    "command": ["ls", "-la"],
-    "image": "busybox",
-    "memory": 1024,
-    "vcpus": 1,
-    "volumes": [
-      {
-        "host": {
-          "sourcePath": "/tmp"
-        },
-        "name": "tmp"
-      }
-    ],
-    "environment": [
-        {"name": "VARNAME", "value": "VARVAL"}
-    ],
-    "mountPoints": [
-        {
-          "sourceVolume": "tmp",
-          "containerPath": "/tmp",
-          "readOnly": false
-        }
-    ],
-    "ulimits": [
-      {
-        "hardLimit": 1024,
-        "name": "nofile",
-        "softLimit": 1024
-      }
-    ]
+  "command": [
+    "ls",
+    "-la"
+  ],
+  "environment": [
+    {
+      "name": "VARNAME",
+      "value": "VARVAL"
+    }
+  ],
+  "image": "busybox",
+  "memory": 1024,
+  "mountPoints": [
+    {
+      "containerPath": "/tmp",
+      "readOnly": false,
+      "sourceVolume": "tmp"
+    }
+  ],
+  "ulimits": [
+    {
+      "hardLimit": 1024,
+      "name": "nofile",
+      "softLimit": 1024
+    }
+  ],
+  "vcpus": 1,
+  "volumes": [
+    {
+      "host": {
+        "sourcePath": "/tmp"
+      },
+      "name": "tmp"
+    }
+  ]
 }
